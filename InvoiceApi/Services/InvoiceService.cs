@@ -244,15 +244,6 @@ namespace InvoiceApi.Services
             invoice.Status = remainingAfterPayment == 0
                 ? InvoiceStatus.Paid
                 : InvoiceStatus.PartiallyPaid;
-
-            if(remainingAfterPayment == 0)
-            {
-                invoice.Status = InvoiceStatus.Paid;
-            }
-            else
-            {
-                invoice.Status = InvoiceStatus.PartiallyPaid;
-            }
             
             await _db.SaveChangesAsync();
             return ToDto(invoice);

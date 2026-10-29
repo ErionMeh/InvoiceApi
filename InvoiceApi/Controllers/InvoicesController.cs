@@ -47,5 +47,13 @@ namespace InvoiceApi.Controllers
         [HttpGet("~/api/clients/{clientId:int}/invoices")]
         public async Task<ActionResult<List<InvoiceDto>>> ForClient(int clientId, [FromQuery] bool pending = false) =>
             Ok(await _service.GetForClientAsync(clientId, pending));
+
+        [HttpGet("{id:int}/pdf")]
+        public async Task<IActionResult> GetPdf(int id, [FromQuery] int userId)
+        {
+            var invoice = await _service.GetByIdAsync(userId, id);
+            var bytes = InvoicePdfGenerator.Generate(invoice);
+            return File(bytes, "application/pdf", $"{invoice.InvoiceNumber}.pdf");
+        }
     }
 }
