@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Invoices</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Invoices</h1>
+
+    <div class="bar">
+        <label>
+            Logged in as:
+            <select id="userSelect"></select>
+        </label>
+        <label id="pendingLabel" hidden>
+            <input type="checkbox" id="pendingOnly" /> Pending only
+        </label>
+    </div>
+
+    <p id="message"></p>
+
+    <section id="createSection" hidden>
+        <h2>New invoice</h2>
+        <select id="clientSelect"></select>
+        <input id="descriptionInput" placeholder="Description" />
+        <input id="totalInput" type="number" min="0.01" step="0.01" placeholder="Total (EUR)" />
+        <button id="createBtn">Create invoice</button>
+    </section>
+
+    <h2>Invoices</h2>
+    <table id="invoicesTable">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Client</th>
+                <th>Address</th>
+                <th>Postman</th>
+                <th>Total</th>
+                <th>Paid</th>
+                <th>Remaining</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>

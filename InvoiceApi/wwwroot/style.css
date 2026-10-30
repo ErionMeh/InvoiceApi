@@ -1,0 +1,49 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.bar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #f0f0f0;
+}
+
+select, input, button {
+    padding: 6px;
+    margin: 2px;
+}
+
+    input[type="number"] {
+        width: 90px;
+    }
+
+#message.error {
+    color: red;
+}
+
+#message.success {
+    color: green;
+}
